@@ -25,9 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={
-          roboto.className + " bg-[#110229] text-white overflow-x-hidden"
-        }
+        className={roboto.className + " bg-black text-white overflow-x-hidden"}
       >
         <AppProvider>
           <Header />

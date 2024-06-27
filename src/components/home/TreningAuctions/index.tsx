@@ -1,12 +1,22 @@
 "use client";
+import { Bitcoin, MoveLeft, Timer } from "lucide";
 import Image from "next/image";
 import React, { useCallback, useRef, useState } from "react";
+import {
+  FaAngleLeft,
+  FaArrowLeft,
+  FaArrowRight,
+  FaBitcoin,
+  FaClock,
+  FaTimes,
+  FaTimesCircle,
+} from "react-icons/fa";
 import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperClass, SwiperRef, SwiperSlide} from "swiper/react";
+import { Swiper, SwiperclassName, SwiperRef, SwiperSlide } from "swiper/react";
 
 export default function TreningAuctions() {
-  const [activeSlide, setActiveSlide] = useState<number>(0)
-  const [swiper, setSwiper] = useState<SwiperClass>();
+  const [activeSlide, setActiveSlide] = useState<number>(0);
+  const [swiper, setSwiper] = useState<SwiperclassName>();
   const sliderRef = useRef<SwiperRef>(null);
 
   const handlePrev = useCallback(() => {
@@ -21,26 +31,42 @@ export default function TreningAuctions() {
 
   return (
     <section className="flex flex-col gap-5">
-      <h2 className="text-5xl" data-aos="fade-right" data-aos-once>Trening Auctions</h2>
+      <h2 className="text-5xl" data-aos="fade-right" data-aos-once>
+        Trening Auctions
+      </h2>
       <div className="flex justify-between items-stretch max-md:flex-col">
-        <p className="text-white/70 max-w-lg" data-aos="fade-right" data-aos-delay='50' data-aos-once>
+        <p
+          className="text-white/70 max-w-lg"
+          data-aos="fade-right"
+          data-aos-delay="50"
+          data-aos-once
+        >
           Lorem ipsum dolor sit amet, consectetur adipisc elit amet. Consectetu
           at it lrorem ipsum dolor sit amet.
         </p>
-        <div className="flex gap-3 text-xl font-bold max-md:w-full max-md:mt-2" data-aos="fade-left" data-aos-delay='50' data-aos-once>
-          <button className="border rounded-sm px-4 grid place-items-center hover:bg-white/20 active:bg-white/10 max-md:w-full max-md:py-3" onClick={handlePrev}>
-            {"<"}
+        <div
+          className="flex gap-3 text-xl font-bold max-md:w-full max-md:mt-2"
+          data-aos="fade-left"
+          data-aos-delay="50"
+          data-aos-once
+        >
+          <button
+            className="border rounded-sm px-4 grid place-items-center hover:bg-white/20 active:bg-white/10 max-md:w-full max-md:py-3"
+            onClick={handlePrev}
+          >
+            <FaArrowLeft />
           </button>
           <button
             className="border rounded-sm px-4 grid place-items-center hover:bg-white/20 active:bg-white/10 max-md:w-full max-md:py-3"
-            onClick={handleNext}>
-            {">"}
+            onClick={handleNext}
+          >
+            <FaArrowRight />
           </button>
         </div>
       </div>
       <Swiper
         style={{
-          height:550,
+          height: 550,
           // @ts-ignore
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
@@ -65,228 +91,149 @@ export default function TreningAuctions() {
           },
         }}
         onSwiper={setSwiper}
-        onSlideChange={(s)=>{
-          setActiveSlide(s.activeIndex)
+        onSlideChange={(s) => {
+          setActiveSlide(s.activeIndex);
         }}
         centeredSlides={true}
         modules={[Navigation, Autoplay]}
-        className="w-full items-center">
+        className="w-full items-center"
+      >
         {activeSlide}
         <SwiperSlide>
-          <div className={`flex flex-col gap-2 p-5 border rounded w-96 max-w-[350px] ${activeSlide === 0 ? 'border-white' : 'border-white/50'}`}>
-            <div className="flex justify-between">
-              <h4 className="text-2xl">Verualy Art</h4>
-              <span className="text-white/70 text-sm">@nftsart</span>
-            </div>
-            <div className="flex gap-3">
-              <Image
-                src={"/images/image1.png"}
-                alt="nft2"
-                width={350}
-                height={600}
-                className={`${activeSlide === 0 ? 'w-64':'w-full'} transition-all duration-500`}
-              />
-              <div className={`flex flex-col items-center gap-3 justify-around overflow-hidden transition-all duration-500 ${activeSlide === 0 ? 'w-20' : 'w-0'}`}>
-                <Image
-                  src={"/images/fakeUser1.png"}
-                  alt="fakeUser"
-                  width={50}
-                  height={50}
-                />
-                <div className="flex flex-col gap-1">
-                  <Image
-                    src={"/images/heartIcon.png"}
-                    alt="heartIcon"
-                    width={50}
-                    height={50}
-                  />
-                  45.5K
-                </div>
-                <div className="flex flex-col gap-1">
-                  <Image
-                    src={"/images/networkIcon.png"}
-                    alt="networkIcon"
-                    width={50}
-                    height={50}
-                  />
-                  25.6K
-                </div>
+          <section className="bg-dark-blue-card-bg p-5 mx-5 rounded-xl max-w-xs shadow-2xl border-2 border-gray-100">
+            <a
+              href="#"
+              className="group block relative rounded-md overflow-hidden"
+            >
+              <img src="/images/image-equilibrium.jpg" alt="equilibrium" />
+            </a>
+
+            <h1>
+              <a
+                href="#"
+                className="block text-white my-4 font-semibold text-lg hover:text-cyan"
+              >
+                Equilibrium #3429
+              </a>
+            </h1>
+
+            <p className="text-soft-blue font-light">
+              Our Equilibrium collection promotes balance and calm.
+            </p>
+
+            <div className="flex justify-between items-center mt-4">
+              <div className="flex text-cyan space-x-2 items-center">
+                <FaBitcoin />
+                <p>0.041 ETH</p>
+              </div>
+              <div className="flex items-center text-soft-blue space-x-2 whitespace-nowrap">
+                <FaClock />
+                <p>3 days left</p>
               </div>
             </div>
-            <div className="flex justify-between text-xl">
-              <span>15h : 05m : 26s</span>
-              <span>20.25 ETH</span>
-            </div>
-            <div className="flex justify-between text-white/70 text-sm">
-              <span>Remaining Time</span>
-              <span>Highest bid</span>
-            </div>
-            <button className={`bg-white text-black text-center rounded transition-all hover:bg-white/20 hover:text-white border overflow-hidden ${activeSlide === 0 ? 'h-full py-2 opacity-100': 'h-0 py-0 opacity-0'}`}>
-              Place a Bid
-            </button>
-          </div>
+          </section>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`flex flex-col gap-2 p-5 border rounded w-96 max-w-[350px] ${activeSlide === 1 ? 'border-white' : 'border-white/50'}`}>
-            <div className="flex justify-between">
-              <h4 className="text-2xl">CAT ICON ART</h4>
-              <span className="text-white/70 text-sm">@nftsart</span>
-            </div>
-            <div className="flex gap-3">
-              <Image
-                src={"/images/image2.png"}
-                alt="nft2"
-                width={400}
-                height={600}
-                className="w-full"
-              />
-              <div className={`flex flex-col items-center gap-3 justify-around overflow-hidden transition-all duration-500 ${activeSlide === 1 ? 'w-20' : 'w-0'}`}>
-                <Image
-                  src={"/images/fakeUser1.png"}
-                  alt="fakeUser"
-                  width={50}
-                  height={50}
-                />
-                <div className="flex flex-col gap-1">
-                  <Image
-                    src={"/images/heartIcon.png"}
-                    alt="heartIcon"
-                    width={50}
-                    height={50}
-                  />
-                  45.5K
-                </div>
-                <div className="flex flex-col gap-1">
-                  <Image
-                    src={"/images/networkIcon.png"}
-                    alt="networkIcon"
-                    width={50}
-                    height={50}
-                  />
-                  25.6K
-                </div>
+          <section className="bg-dark-blue-card-bg p-5 mx-5 rounded-xl max-w-xs shadow-2xl border-2 border-gray-100">
+            <a
+              href="#"
+              className="group block relative rounded-md overflow-hidden"
+            >
+              <img src="/images/image-equilibrium.jpg" alt="equilibrium" />
+            </a>
+
+            <h1>
+              <a
+                href="#"
+                className="block text-white my-4 font-semibold text-lg hover:text-cyan"
+              >
+                Equilibrium #3429
+              </a>
+            </h1>
+
+            <p className="text-soft-blue font-light">
+              Our Equilibrium collection promotes balance and calm.
+            </p>
+
+            <div className="flex justify-between items-center mt-4">
+              <div className="flex text-cyan space-x-2 items-center">
+                <FaBitcoin />
+                <p>0.041 ETH</p>
+              </div>
+              <div className="flex items-center text-soft-blue space-x-2 whitespace-nowrap">
+                <FaClock />
+                <p>3 days left</p>
               </div>
             </div>
-            <div className="flex justify-between text-xl">
-              <span>15h : 05m : 26s</span>
-              <span>20.25 ETH</span>
-            </div>
-            <div className="flex justify-between text-white/70 text-sm">
-              <span>Remaining Time</span>
-              <span>Highest bid</span>
-            </div>
-            <button className={`bg-white text-black text-center rounded transition-all hover:bg-white/20 hover:text-white border overflow-hidden ${activeSlide === 1 ? 'h-full py-2 opacity-100': 'h-0 py-0 opacity-0'}`}>
-              Place a Bid
-            </button>
-          </div>
+          </section>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`flex flex-col gap-2 p-5 border rounded w-96 max-w-[350px] ${activeSlide === 2 ? 'border-white' : 'border-white/50'}`}>
-            <div className="flex justify-between">
-              <h4 className="text-2xl">DOG ICON ART</h4>
-              <span className="text-white/70 text-sm">@nftsart</span>
-            </div>
-            <div className="flex gap-3">
-              <Image
-                src={"/images/image3.png"}
-                alt="nft2"
-                width={350}
-                height={600}
-                className={`${activeSlide === 2 ? 'w-64':'w-full'} transition-all duration-500`}
-              />
-              <div className={`flex flex-col items-center gap-3 justify-around overflow-hidden transition-all duration-500 ${activeSlide === 2 ? 'w-20' : 'w-0'}`}>
-                <Image
-                  src={"/images/fakeUser1.png"}
-                  alt="fakeUser"
-                  width={50}
-                  height={50}
-                />
-                <div className="flex flex-col gap-1">
-                  <Image
-                    src={"/images/heartIcon.png"}
-                    alt="heartIcon"
-                    width={50}
-                    height={50}
-                  />
-                  45.5K
-                </div>
-                <div className="flex flex-col gap-1">
-                  <Image
-                    src={"/images/networkIcon.png"}
-                    alt="networkIcon"
-                    width={50}
-                    height={50}
-                  />
-                  25.6K
-                </div>
+          <section className="bg-dark-blue-card-bg p-5 mx-5 rounded-xl max-w-xs shadow-2xl border-2 border-gray-100">
+            <a
+              href="#"
+              className="group block relative rounded-md overflow-hidden"
+            >
+              <img src="/images/image-equilibrium.jpg" alt="equilibrium" />
+            </a>
+
+            <h1>
+              <a
+                href="#"
+                className="block text-white my-4 font-semibold text-lg hover:text-cyan"
+              >
+                Equilibrium #3429
+              </a>
+            </h1>
+
+            <p className="text-soft-blue font-light">
+              Our Equilibrium collection promotes balance and calm.
+            </p>
+
+            <div className="flex justify-between items-center mt-4">
+              <div className="flex text-cyan space-x-2 items-center">
+                <FaBitcoin />
+                <p>0.041 ETH</p>
+              </div>
+              <div className="flex items-center text-soft-blue space-x-2 whitespace-nowrap">
+                <FaClock />
+                <p>3 days left</p>
               </div>
             </div>
-            <div className="flex justify-between text-xl">
-              <span>15h : 05m : 26s</span>
-              <span>20.25 ETH</span>
-            </div>
-            <div className="flex justify-between text-white/70 text-sm">
-              <span>Remaining Time</span>
-              <span>Highest bid</span>
-            </div>
-            <button className={`bg-white text-black text-center rounded transition-all hover:bg-white/20 hover:text-white border overflow-hidden ${activeSlide === 2 ? 'h-full py-2 opacity-100': 'h-0 py-0 opacity-0'}`}>
-              Place a Bid
-            </button>
-          </div>
+          </section>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`flex flex-col gap-2 p-5 border rounded w-96 max-w-[350px] ${activeSlide === 3 ? 'border-white' : 'border-white/50'}`}>
-            <div className="flex justify-between">
-              <h4 className="text-2xl">Verualy Art</h4>
-              <span className="text-white/70 text-sm">@nftsart</span>
-            </div>
-            <div className="flex gap-3">
-              <Image
-                src={"/images/c4-1.png"}
-                alt="nft2"
-                width={350}
-                height={600}
-                className={`${activeSlide === 3 ? 'w-64':'w-full'} transition-all duration-500`}
-              />
-              <div className={`flex flex-col items-center gap-3 justify-around overflow-hidden transition-all duration-500 ${activeSlide === 3 ? 'w-20' : 'w-0'}`}>
-                <Image
-                  src={"/images/fakeUser1.png"}
-                  alt="fakeUser"
-                  width={50}
-                  height={50}
-                />
-                <div className="flex flex-col gap-1">
-                  <Image
-                    src={"/images/heartIcon.png"}
-                    alt="heartIcon"
-                    width={50}
-                    height={50}
-                  />
-                  45.5K
-                </div>
-                <div className="flex flex-col gap-1">
-                  <Image
-                    src={"/images/networkIcon.png"}
-                    alt="networkIcon"
-                    width={50}
-                    height={50}
-                  />
-                  25.6K
-                </div>
+          <section className="bg-dark-blue-card-bg p-5 mx-5 rounded-xl max-w-xs shadow-2xl border-2 border-gray-100">
+            <a
+              href="#"
+              className="group block relative rounded-md overflow-hidden"
+            >
+              <img src="/images/image-equilibrium.jpg" alt="equilibrium" />
+            </a>
+
+            <h1>
+              <a
+                href="#"
+                className="block text-white my-4 font-semibold text-lg hover:text-cyan"
+              >
+                Equilibrium #3429
+              </a>
+            </h1>
+
+            <p className="text-soft-blue font-light">
+              Our Equilibrium collection promotes balance and calm.
+            </p>
+
+            <div className="flex justify-between items-center mt-4">
+              <div className="flex text-cyan space-x-2 items-center">
+                <FaBitcoin />
+                <p>0.041 ETH</p>
+              </div>
+              <div className="flex items-center text-soft-blue space-x-2 whitespace-nowrap">
+                <FaClock />
+                <p>3 days left</p>
               </div>
             </div>
-            <div className="flex justify-between text-xl">
-              <span>15h : 05m : 26s</span>
-              <span>20.25 ETH</span>
-            </div>
-            <div className="flex justify-between text-white/70 text-sm">
-              <span>Remaining Time</span>
-              <span>Highest bid</span>
-            </div>
-            <button className={`bg-white text-black text-center rounded transition-all hover:bg-white/20 hover:text-white border overflow-hidden ${activeSlide === 3 ? 'h-full py-2 opacity-100': 'h-0 py-0 opacity-0'}`}>
-              Place a Bid
-            </button>
-          </div>
+          </section>
         </SwiperSlide>
       </Swiper>
     </section>

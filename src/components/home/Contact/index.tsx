@@ -29,7 +29,7 @@ export default function Contact() {
             placeholder="Enter your email..."
             className="bg-white/20 rounded-l py-4 px-2 w-full focus:outline-none ring-0 ring-pink-500 focus:ring-2 caret-pink-500"
           />
-          <button className="px-7 py-4 rounded-r bg-gradient-to-r from-indigo-500 to-pink-500 hover:opacity-80 w-1/3">
+          <button className="px-7 py-4 rounded-r bg-orange-400 hover:opacity-80 w-1/3">
             Sign Up
           </button>
         </form>
