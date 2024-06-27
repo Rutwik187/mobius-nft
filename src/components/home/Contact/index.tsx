@@ -35,7 +35,7 @@ export default function Contact() {
         </form>
       </div>
       <Image
-        src={"/images/image4.png"}
+        src={"/images/contact.png"}
         alt="image"
         width={400}
         height={400}
