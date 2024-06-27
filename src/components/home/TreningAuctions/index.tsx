@@ -12,11 +12,11 @@ import {
   FaTimesCircle,
 } from "react-icons/fa";
 import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperclassName, SwiperRef, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperRef, SwiperSlide } from "swiper/react";
 
 export default function TreningAuctions() {
   const [activeSlide, setActiveSlide] = useState<number>(0);
-  const [swiper, setSwiper] = useState<SwiperclassName>();
+  const [swiper, setSwiper] = useState<SwiperClass>();
   const sliderRef = useRef<SwiperRef>(null);
 
   const handlePrev = useCallback(() => {
